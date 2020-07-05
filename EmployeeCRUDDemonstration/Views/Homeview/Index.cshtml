@@ -1,0 +1,53 @@
+﻿@model List<EmployeeCRUDDemonstration.Models.Employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h2>Welcome to Employee CRUD Demonstration...</h2>
+        <p style="font-weight:bold">
+            @TempData["ResultMessage"]
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Dept Id</th>
+                    <th>Action(s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var emp in Model)
+                {
+                    <tr>
+                        <td>@emp.Id</td>
+                        <td>@emp.Name</td>
+                        <td>@emp.Location</td>
+                        <td>@emp.Salary</td>
+                        <td>@emp.DeptId</td>
+                        <td>
+                            <a href="/Home/EditEmployee/@emp.Id">Edit</a>
+                            <a href="/Home/DeleteEmployee/@emp.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+            <a href="/Home/CreateEmployee">Click here to Create New Employee</a>
+        </p>
+    </div>
+</body>
+</html>

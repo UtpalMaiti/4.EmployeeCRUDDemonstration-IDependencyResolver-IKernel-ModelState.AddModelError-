@@ -1,0 +1,43 @@
+﻿@model EmployeeCRUDDemonstration.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Employee</title>
+</head>
+<body>
+    <div>
+        <h2>Employee Details...</h2>
+        <form method="post" action="/Home/EditEmployee">
+            @Html.HiddenFor(e=>e.Id)
+            <p>
+                <label>Name : @Html.TextBoxFor(e => e.Name)</label>
+                <label style="color:red">@Html.ValidationMessageFor(e => e.Name)</label>
+            </p>
+            <p>
+                <label>Location : @Html.TextBoxFor(e => e.Location)</label>
+                <label style="color:red">@Html.ValidationMessageFor(e => e.Location)</label>
+            </p>
+            <p>
+                <label>Salary : @Html.TextBoxFor(e => e.Salary)</label>
+                <label style="color:red">@Html.ValidationMessageFor(e => e.Salary)</label>
+            </p>
+            <p>
+                <label>Dept ID : @Html.TextBoxFor(e => e.DeptId)</label>
+                <label style="color:red">@Html.ValidationMessageFor(e => e.DeptId)</label>
+            </p>
+            <p style="color:red">
+                @Html.ValidationMessage("UpdateFailed")
+            </p>
+            <button>Update</button>
+        </form>
+
+    </div>
+</body>
+</html>
